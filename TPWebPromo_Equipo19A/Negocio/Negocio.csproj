@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Negocio</RootNamespace>
     <AssemblyName>Negocio</AssemblyName>
-    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -48,10 +49,6 @@
     <ProjectReference Include="..\Dominio\Dominio.csproj">
       <Project>{f5a07deb-3c5b-4133-9ef5-a96a325877bf}</Project>
       <Name>Dominio</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TPWebPromo_Equipo19A\TPWebPromo_Equipo19A.csproj">
-      <Project>{3dfe6cc9-0be1-4f90-9bb9-49a30dfa6223}</Project>
-      <Name>TPWebPromo_Equipo19A</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

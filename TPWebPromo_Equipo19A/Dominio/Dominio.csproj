@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Dominio</RootNamespace>
     <AssemblyName>Dominio</AssemblyName>
-    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,12 +45,6 @@
     <Compile Include="Cliente.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Voucher.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TPWebPromo_Equipo19A\TPWebPromo_Equipo19A.csproj">
-      <Project>{3dfe6cc9-0be1-4f90-9bb9-49a30dfa6223}</Project>
-      <Name>TPWebPromo_Equipo19A</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

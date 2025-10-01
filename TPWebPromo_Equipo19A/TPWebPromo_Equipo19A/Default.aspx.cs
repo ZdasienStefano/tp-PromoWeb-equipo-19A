@@ -1,4 +1,5 @@
 ﻿using System;
+using Negocio;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
@@ -22,20 +23,23 @@ namespace TPWebPromo_Equipo19A
            /*
             string Valor = TextBox1.Text;
 
-            string conexion = ConfigurationManager.ConnectionStrings["PROMOS_DB"].ConnectionString;
+            if (string.IsNullOrWhiteSpace(Valor))
+            {
+                Response.Write("<script>alert('Por favor ingrese un código.');</script>");
+                return;
+            }
 
-            using (SqlConnection con = new SqlConnection(conexion))
+
             {
                 try
                 {
-                    var Canje = new CanjeDeCodigo();
-                    con.Open();
-                    string query = "insert into VOUCHERS (Codigo) VALUES (@Codigo)";
-                    SqlCommand cmd = new SqlCommand(query, con);
-                    cmd.Parameters.AddWithValue(Canje, Valor);
-                    cmd.ExecuteNonQuery();
 
-                    Response.Write("<script> alert('¡Codigo canjeado exitosamente!');</script>");
+                    AccesoDatos datos = new AccesoDatos();
+                    string consulta = "INSERT INTO Vouchers (Codigo) VALUES ('" + codigo + "')";
+                    datos.SetearConsulta(consulta);
+                    datos.EjecutarAccion();
+                    Response.Write("<script>alert('Código guardado exitosamente.');</script>");
+
                 }
                 catch (Exception ex)
                 {
@@ -47,7 +51,7 @@ namespace TPWebPromo_Equipo19A
 
 
 
-
+            
             }
             */
         }
