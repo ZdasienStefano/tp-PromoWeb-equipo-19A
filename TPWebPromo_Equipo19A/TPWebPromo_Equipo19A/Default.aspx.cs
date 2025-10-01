@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using static System.Net.Mime.MediaTypeNames;
+using Dominio;
 
 namespace TPWebPromo_Equipo19A
 {
@@ -20,7 +21,7 @@ namespace TPWebPromo_Equipo19A
 
         protected void btnSiguiente_Click(object sender, EventArgs e)
         {
-           /*
+            
             string Valor = TextBox1.Text;
 
             if (string.IsNullOrWhiteSpace(Valor))
@@ -33,27 +34,37 @@ namespace TPWebPromo_Equipo19A
             {
                 try
                 {
+                    List<Voucher> vouchers;
+                    voucherNegocio negocio = new voucherNegocio();
+                    vouchers = negocio.Lectura();
+                    bool encontrado = false;
 
-                    AccesoDatos datos = new AccesoDatos();
-                    string consulta = "INSERT INTO Vouchers (Codigo) VALUES ('" + codigo + "')";
-                    datos.SetearConsulta(consulta);
-                    datos.EjecutarAccion();
-                    Response.Write("<script>alert('Código guardado exitosamente.');</script>");
+                    foreach (var v in vouchers)
+                    {
+                        if(v.CodVaucher == Valor)
+                        {
+                            ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('El voucher existe en la base de datos');", true);
+                            encontrado = true;
+                            return;
+                        }
+                    }
+
+                    if (!encontrado)
+                    {
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('El voucher NO existe');", true);
+                    }
 
                 }
                 catch (Exception ex)
                 {
-                    Response.Write("<script> alert(Error: " + ex.Message + "');</script>");
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Error: " + ex.Message + "');", true);
 
                 }
 
-
-
-
-
+          
             
             }
-            */
+            
         }
     }
 }

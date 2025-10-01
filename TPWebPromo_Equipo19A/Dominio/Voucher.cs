@@ -13,8 +13,12 @@ namespace Dominio
         public string CodVaucher {  get; set; }
 
         public int IdArticulo { get; set; }
+
+        public int IdCliente { get; set; }
+
+        public DateTime FechaCanje { get; set; }
+
         
-        // faltaria fecha canje
 
     }
 }
