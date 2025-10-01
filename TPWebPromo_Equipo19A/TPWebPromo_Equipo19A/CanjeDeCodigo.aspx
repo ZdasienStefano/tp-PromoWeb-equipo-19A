@@ -3,4 +3,5 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2>Esta seria la pantalla donde se canjea el codigo</h2>
+
 </asp:Content>
