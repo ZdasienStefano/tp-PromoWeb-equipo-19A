@@ -9,6 +9,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using static System.Net.Mime.MediaTypeNames;
 using Dominio;
+using System.Web.Services.Description;
 
 namespace TPWebPromo_Equipo19A
 {
@@ -43,7 +44,7 @@ namespace TPWebPromo_Equipo19A
                     {
                         if(v.CodVaucher == Valor)
                         {
-                            ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('El voucher existe en la base de datos');", true);
+                            Response.Redirect("Catalogo.aspx?voucher=" + Valor);
                             encontrado = true;
                             return;
                         }
@@ -51,7 +52,7 @@ namespace TPWebPromo_Equipo19A
 
                     if (!encontrado)
                     {
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('El voucher NO existe');", true);
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('El voucher no existe o ya fue canjeado');", true);
                     }
 
                 }
