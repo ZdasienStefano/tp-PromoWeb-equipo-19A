@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Dominio;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -13,5 +15,27 @@ namespace TPWebPromo_Equipo19A
         {
 
         }
+
+        /*
+        protected void TxtDNI_TextChanged(object sender, EventArgs e)
+        {
+            string DNI=TxtDNI.Text;
+            if (string.IsNullOrWhiteSpace(DNI))
+            {
+                Response.Write("<script>alert('Por favor ingrese un código.');</script>");
+                return;
+            }
+
+            try
+            {
+                List<Cliente> clientes;
+
+
+
+
+            }
+
+
+        }*/
     }
 }
