@@ -8,27 +8,24 @@
 
         <div class="col-4"></div>
         <div class="col">
-            <div style="font-family:Dubai">
-
-            <h1> Promo ¡¡¡GANA!!! </h1>
-
+            <div id="caja-promo">
+            <h1 id="letra-promo"> Promo ¡¡¡GANA!!! </h1>
             </div>
-            <div style="font-family:Tahoma";>
-                <h3>Ingresa el codigo de tu voucher</h3>
+            <div id="ingreso-voucher">
+                <h3> Ingresa el codigo de tu voucher </h3>
             </div>
 
-            <div>
-                <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" Text="XXXXXXXXXX" Style="width: 300px"></asp:TextBox>
-            </div>
+            <div id="div-textbox" class="d-flex flex-column align-items-center gap-3">
+    <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control input-voucher" Text="XXXXXXXXXX" Width="300px">
+    </asp:TextBox>
 
-            <div class="d-grid gap-2 d-md-block">
-                <asp:Button ID="btnSiguiente" runat="server" CssClass="btn btn-success btn-lg shadow-sm" Text="Siguiente" Style="width: 120px" OnClick="btnSiguiente_Click"></asp:Button>
-            </div>
+    <asp:Button ID="btnSiguiente" runat="server" CssClass="btn btn-success btn-lg shadow-sm boton-siguiente" Text="Siguiente" Width="120px"  OnClick="btnSiguiente_Click">
+    </asp:Button>
+        </div>
 
         </div>
         <div class="col-4"></div>
-
-    </div>
+         </div>
 
 
 </asp:Content>

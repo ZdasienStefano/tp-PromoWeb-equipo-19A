@@ -1,0 +1,59 @@
+﻿#caja-promo {
+    background: black;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0px 8px 25px rgba(0,0,0,0.2);
+    text-align: center;
+    width: 350px;
+    margin: 100px auto;
+    margin-bottom: 0;
+    text-align: center;
+}
+#letra-promo {
+    font-family: "Bitcount Single Ink", system-ui;
+    font-optical-sizing: auto;
+    font-weight:bolder;
+    font-style: normal;
+    font-variation-settings: "slnt" 0, "CRSV" 0.5, "ELSH" 0, "ELXP" 0, "SZP1" 0, "SZP2" 0, "XPN1" 0, "XPN2" 0, "YPN1" 0, "YPN2" 0;
+}
+#ingreso-voucher {
+    font-family: monospace;
+    text-align: center;
+}
+#div-textbox {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.input-voucher {
+    max-width: 300px;
+    text-align: center;
+    border-radius: 12px;
+    border: 2px solid #4CAF50;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    padding: 10px;
+    font-size: 18px;
+    transition: all 0.3s ease-in-out;
+}
+.input-voucher:focus {
+    outline: none;
+    border-color: #2e7d32;
+    box-shadow: 0px 4px 12px rgba(46,125,50,0.4);
+}
+#div-boton {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    width: 100%; 
+    margin-top: 15px;
+}
+.boton-siguiente {
+    width: 150px;
+    font-size: 18px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.15);
+    transition: all 0.3s ease-in-out;
+}
+.boton-siguiente:hover {
+    transform: scale(1.05);
+}
