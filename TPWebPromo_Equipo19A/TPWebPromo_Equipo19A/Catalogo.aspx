@@ -7,18 +7,18 @@
 
         <% foreach (Dominio.Articulo Art in ListaArticulos)
             { %>
-        <div class="col">
-            <div class="card">
+                 <div class="col">
+                <div class="card">
                 <img src="<%: Art.Url.UrlImagen %>" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title"><%: Art.Nombre %></h5>
                     <p class="card-text"><%: Art.Descripcion %></p>
                 </div>
-            </div>
-        </div>
+                    </div>
+                </div>
 
         <%
-            }
+           }
 
 
             %>

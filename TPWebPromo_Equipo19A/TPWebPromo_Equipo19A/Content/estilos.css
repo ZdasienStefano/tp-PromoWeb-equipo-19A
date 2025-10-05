@@ -57,3 +57,19 @@
 .boton-siguiente:hover {
     transform: scale(1.05);
 }
+
+.barra-superior {
+    background-color: #343a40; 
+    color: white; 
+    padding: 20px;
+    text-align: center;
+    font-family:'Cascadia Code';
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.barra-superior h1 {
+        font-size: 28px;
+        font-weight: 600;
+        margin: 0;
+        letter-spacing: 1px;
+}

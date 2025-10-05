@@ -133,6 +133,13 @@
     <Compile Include="MasterWeb.Master.designer.cs">
       <DependentUpon>MasterWeb.Master</DependentUpon>
     </Compile>
+    <Compile Include="Registrocliente.aspx.cs">
+      <DependentUpon>Registrocliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registrocliente.aspx.designer.cs">
+      <DependentUpon>Registrocliente.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

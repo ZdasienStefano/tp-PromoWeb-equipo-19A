@@ -18,7 +18,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Barriecito&family=Bitcount+Single+Ink:wght@100..900&display=swap" rel="stylesheet">
 
 </head>
-<body style="background-color:darkgrey;">
+<body style="background-color:white;">
+
+     <header class="barra-superior">
+        <h3>¡Promo Ganá!</h3>
+    </header>
     <form id="form1" runat="server">
         <div class="container">
             <br />

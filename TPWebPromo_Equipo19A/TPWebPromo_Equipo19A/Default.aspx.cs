@@ -53,12 +53,14 @@ namespace TPWebPromo_Equipo19A
                     if (!encontrado)
                     {
                         ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('El voucher no existe o ya fue canjeado');", true);
+                        TextBox1.Text = string.Empty;
                     }
 
                 }
                 catch (Exception ex)
                 {
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Error: " + ex.Message + "');", true);
+                    TextBox1.Text = string.Empty;
 
                 }
 
