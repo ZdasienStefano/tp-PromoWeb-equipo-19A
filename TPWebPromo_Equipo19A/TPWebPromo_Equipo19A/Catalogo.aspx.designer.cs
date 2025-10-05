@@ -11,7 +11,7 @@ namespace TPWebPromo_Equipo19A
 {
 
 
-    public partial class CanjeDeCodigo
+    public partial class Catalogo
     {
 
         /// <summary>
@@ -22,6 +22,15 @@ namespace TPWebPromo_Equipo19A
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TxtDNI;
+
+        /// <summary>
+        /// Control LblMensaje.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblMensaje;
 
         /// <summary>
         /// Control TxtNombre.
@@ -76,5 +85,14 @@ namespace TPWebPromo_Equipo19A
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TxtCP;
+
+        /// <summary>
+        /// Control BtnParticipar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnParticipar;
     }
 }
