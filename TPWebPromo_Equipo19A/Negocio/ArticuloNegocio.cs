@@ -17,7 +17,7 @@ namespace Negocio
 
             try
             {
-                datos.SetearConsulta("SELECT Id, Codigo, Nombre, Descripcion FROM Articulos;");
+                datos.SetearConsulta("SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, I.ImagenUrl FROM ARTICULOS A LEFT JOIN IMAGENES I ON A.Id = I.IdArticulo;");
                 datos.EjecutarLectura();
 
                 while (datos.Lector.Read())
@@ -34,6 +34,10 @@ namespace Negocio
                                         : "";
                     aux.Descripcion = datos.Lector["Descripcion"] != DBNull.Value
                                         ? datos.Lector["Descripcion"].ToString()
+                                        : "";
+                    aux.Url = new Imagen();
+                    aux.Url.UrlImagen = datos.Lector["ImagenUrl"] != DBNull.Value
+                                        ? datos.Lector["ImagenUrl"].ToString()
                                         : "";
                     Lista.Add(aux);
 
