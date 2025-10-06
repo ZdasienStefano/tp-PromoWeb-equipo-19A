@@ -17,7 +17,7 @@ namespace Negocio
 
             try
             {
-                datos.SetearConsulta("SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, I.ImagenUrl FROM ARTICULOS A LEFT JOIN IMAGENES I ON A.Id = I.IdArticulo;");
+                datos.SetearConsulta("SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, STRING_AGG(I.ImagenUrl, '|') AS Imagenes FROM ARTICULOS A LEFT JOIN IMAGENES I ON A.Id = I.IdArticulo GROUP BY A.Id, A.Codigo, A.Nombre, A.Descripcion;");
                 datos.EjecutarLectura();
 
                 while (datos.Lector.Read())
@@ -35,11 +35,13 @@ namespace Negocio
                     aux.Descripcion = datos.Lector["Descripcion"] != DBNull.Value
                                         ? datos.Lector["Descripcion"].ToString()
                                         : "";
-                    aux.Url = new Imagen();
-                    aux.Url.UrlImagen = datos.Lector["ImagenUrl"] != DBNull.Value
-                                        ? datos.Lector["ImagenUrl"].ToString()
-                                        : "";
+
+                    string urls = datos.Lector["Imagenes"] as string;
+                    if (!string.IsNullOrEmpty(urls))
+                        aux.Imagenes = urls.Split('|').ToList();
+
                     Lista.Add(aux);
+
 
                 }
                 return Lista;

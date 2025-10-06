@@ -20,15 +20,14 @@ namespace TPWebPromo_Equipo19A
             //    LblMensaje.Visible = false;
             //}
 
-            ArticuloNegocio negocio = new ArticuloNegocio();
-            ListaArticulos = negocio.Lectura();
+            
+                ArticuloNegocio negocio = new ArticuloNegocio();
+                ListaArticulos = negocio.Lectura();
+                
+            
         }
 
-
-        
-
-
-
+  
     }
 
 
