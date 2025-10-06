@@ -31,6 +31,9 @@ namespace Negocio
                     aux.IdArticulo = datos.Lector["IdArticulo"] != DBNull.Value
                                      ? Convert.ToInt32(datos.Lector["IdArticulo"])
                                      : 0;
+                    aux.FechaCanje = datos.Lector["FechaCanje"] != DBNull.Value
+                ? Convert.ToDateTime(datos.Lector["FechaCanje"])
+                : (DateTime?)null;
 
                     Lista.Add(aux);
 

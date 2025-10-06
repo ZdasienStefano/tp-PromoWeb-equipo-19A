@@ -44,9 +44,21 @@ namespace TPWebPromo_Equipo19A
                     {
                         if(v.CodVaucher == Valor)
                         {
-                            Response.Redirect("Catalogo.aspx?voucher=" + Valor);
                             encontrado = true;
+
+                            if (v.FechaCanje.HasValue)
+                            {
+                                // Voucher encontrado pero ya canjeado
+                                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Este voucher ya fue canjeado.');", true);
+                                TextBox1.Text = string.Empty;
+                                return;
+                            }
+
+                            // Voucher valido y no canjeado
+                            Response.Redirect("Catalogo.aspx?voucher=" + Valor);
                             return;
+
+                            
                         }
                     }
 

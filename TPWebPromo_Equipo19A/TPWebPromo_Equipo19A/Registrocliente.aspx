@@ -13,10 +13,15 @@
 <h1 class="text-center mb-4">Ingresá tus datos</h1>
 </div>
 <div>
-<h2 class="col-md-4">DNI</h2>
+<h2 class="col-md-4">DNI:</h2>
 </div>
 <div>
-<asp:TextBox ID="TxtDNI" runat="server" CssClass="form-control" Text="" Width="300px" AutoPostBack="True" OnTextChanged="TxtDNI_TextChanged" ></asp:TextBox>
+<asp:TextBox ID="TxtDNI" runat="server" CssClass="form-control border border-dark" Text="" Width="300px" AutoPostBack="True" OnTextChanged="TxtDNI_TextChanged" ></asp:TextBox>
+ <asp:RequiredFieldValidator  ID="ReqDNI" runat="server" ControlToValidate="TxtDNI" ErrorMessage="DNI Requerido" CssClass="text-danger" Display="Dynamic" />
+ <asp:RegularExpressionValidator ID="RegexDNI" runat="server" ControlToValidate="TxtDNI" ValidationExpression="^\d+$" ErrorMessage="Solo números" CssClass="text-danger" Display="Dynamic" />   
+    
+    
+    
     <asp:Label ID="LblMensaje" runat="server" CssClass="text-danger"></asp:Label>
 </div>
 
@@ -29,9 +34,15 @@
                 <!--  carga nombre apellido email    -->
          <div class="row fs-1 gap-2">
 
-    <asp:TextBox ID="TxtNombre" runat="server" CssClass="form-control" Text="" Width="300px" ></asp:TextBox>
-    <asp:TextBox ID="TxtApellido" runat="server" CssClass="form-control" Text="" Width="300px" ></asp:TextBox>
-    <asp:TextBox ID="TxtEmail" runat="server" CssClass="form-control" Text="" Width="300px" ></asp:TextBox>
+    <asp:TextBox ID="TxtNombre" runat="server" CssClass="form-control border border-dark" Text="" Width="300px" Enabled="false" ></asp:TextBox>
+    <asp:TextBox ID="TxtApellido" runat="server" CssClass="form-control border border-dark" Text="" Width="300px" Enabled="false" ></asp:TextBox>
+    <asp:TextBox ID="TxtEmail" runat="server" CssClass="form-control border border-dark" Text="" Width="300px" Enabled="false" ></asp:TextBox>
+    <asp:RequiredFieldValidator ID="ReqEmail" runat="server" ControlToValidate="TxtEmail"
+    ErrorMessage="Email requerido" CssClass="text-danger" Display="Dynamic" />
+    <asp:RegularExpressionValidator ID="RegexEmail" runat="server" ControlToValidate="TxtEmail"
+    ValidationExpression="^[^@\s]+@[^@\s]+\.[^@\s]+$"
+    ErrorMessage="Formato de email inválido" CssClass="text-danger" Display="Dynamic" />
+
 </div>
 
 
@@ -45,9 +56,9 @@
                 <!--  carga Direccion ciudad CP    -->
          <div class="row fs-1 gap-2">
 
-    <asp:TextBox ID="TxtDireccion" runat="server" CssClass="form-control" Text="" Width="300px" ></asp:TextBox>
-    <asp:TextBox ID="TxtCiudad" runat="server" CssClass="form-control" Text="" Width="300px" ></asp:TextBox>
-    <asp:TextBox ID="TxtCP" runat="server" CssClass="form-control" Text="" Width="300px" ></asp:TextBox>
+    <asp:TextBox ID="TxtDireccion" runat="server" CssClass="form-control border border-dark" Text="" Width="300px" Enabled="false" ></asp:TextBox>
+    <asp:TextBox ID="TxtCiudad" runat="server" CssClass="form-control border border-dark" Text="" Width="300px" Enabled="false" ></asp:TextBox>
+    <asp:TextBox ID="TxtCP" runat="server" CssClass="form-control border border-dark" Text="" Width="300px" Enabled="false" ></asp:TextBox>
 </div>
 
 

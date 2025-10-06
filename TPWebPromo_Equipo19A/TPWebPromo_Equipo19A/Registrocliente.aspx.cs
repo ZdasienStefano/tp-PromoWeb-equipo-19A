@@ -33,46 +33,44 @@ namespace TPWebPromo_Equipo19A
                 return;
             }
 
-             try
+
+
+            try
             {
-                List<Cliente> clientes;
                 ClienteNegocio negocio = new ClienteNegocio();
-                clientes = negocio.Lectura();
+                List<Cliente> clientes = negocio.Lectura();
 
+                Cliente encontrado = clientes.FirstOrDefault(v => v.Documento == DNI);
 
-                foreach (var v in clientes)
+                if (encontrado != null)
                 {
-                    if (v.Documento == DNI)
-                    {
-                        // aca se llenara toda la info 
+                    TxtNombre.Text = encontrado.Nombre;
+                    TxtApellido.Text = encontrado.Apellido;
+                    TxtCiudad.Text = encontrado.Ciudad;
+                    TxtEmail.Text = encontrado.Email;
+                    TxtDireccion.Text = encontrado.Direccion;
+                    TxtCP.Text = encontrado.CP.ToString();
+                    LblMensaje.Visible = false; // Oculta el mensaje si existe
 
-                        TxtNombre.Text = v.Nombre;
-                        TxtApellido.Text = v.Apellido;
-                        TxtCiudad.Text = v.Ciudad;
-                        TxtEmail.Text = v.Email;
-                       TxtDireccion.Text = v.Direccion;
-                        TxtCP.Text = v.CP.ToString();
-
-
-
-                        break;
-                    }
-                    else
-                    {
-                        LblMensaje.Text = "Su DNI no esta registrado en el sistema";
-                        LblMensaje.Visible = true;
-                    }
-
-
+                    HabilitarCampos(true);
                 }
+                else
+                {
+                    LblMensaje.Text = "DNI no encontrado. Podés completar tus datos para participar.";
+                    LblMensaje.CssClass = "text-warning";
+                    LblMensaje.Visible = true;
 
-
+                    LimpiarCampos();
+                    HabilitarCampos(true);
+                }
             }
             catch
             {
                 LblMensaje.Text = "Ocurrió un error inesperado.";
                 LblMensaje.Visible = true;
             }
+
+
 
 
         }
@@ -112,7 +110,7 @@ namespace TPWebPromo_Equipo19A
                     LblMensaje.Text = "El cliente con ese DNI ya está registrado.";
                     LblMensaje.CssClass = "text-warning";
                     LblMensaje.Visible = true;
-                   return;
+                    return;
                 }
 
 
@@ -130,8 +128,26 @@ namespace TPWebPromo_Equipo19A
         }
 
 
+        
+        private void HabilitarCampos(bool estado)
+        {
+            TxtNombre.Enabled = estado;
+            TxtApellido.Enabled = estado;
+            TxtEmail.Enabled = estado;
+            TxtDireccion.Enabled = estado;
+            TxtCiudad.Enabled = estado;
+            TxtCP.Enabled = estado;
+        }
 
-
+        private void LimpiarCampos()
+        {
+            TxtNombre.Text = "";
+            TxtApellido.Text = "";
+            TxtEmail.Text = "";
+            TxtDireccion.Text = "";
+            TxtCiudad.Text = "";
+            TxtCP.Text = "";
+        }
 
 
     }

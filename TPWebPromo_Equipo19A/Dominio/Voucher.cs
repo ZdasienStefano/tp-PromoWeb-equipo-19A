@@ -16,7 +16,7 @@ namespace Dominio
 
         public int IdCliente { get; set; }
 
-        public DateTime FechaCanje { get; set; }
+        public DateTime? FechaCanje { get; set; }
 
         
 
