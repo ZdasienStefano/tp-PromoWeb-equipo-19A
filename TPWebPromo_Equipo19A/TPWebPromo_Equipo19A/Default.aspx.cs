@@ -66,6 +66,7 @@ namespace TPWebPromo_Equipo19A
                     {
                         ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('El voucher no existe o ya fue canjeado');", true);
                         TextBox1.Text = string.Empty;
+                        Response.Redirect("Error.aspx");
                     }
 
                 }

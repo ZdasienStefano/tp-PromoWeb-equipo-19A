@@ -73,3 +73,18 @@
         margin: 0;
         letter-spacing: 1px;
 }
+
+estilos.css
+.text-danger {
+    color: #c0392b !important;
+}
+
+.btn-primary {
+    background-color: #198754;
+    border: none;
+}
+
+ .btn-primary:hover {
+    background-color: #146c43;
+
+ }
