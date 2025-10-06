@@ -22,7 +22,7 @@ namespace TPWebPromo_Equipo19A
 
         protected void btnSiguiente_Click(object sender, EventArgs e)
         {
-            
+
             string Valor = TextBox1.Text;
 
             if (string.IsNullOrWhiteSpace(Valor))
@@ -42,7 +42,7 @@ namespace TPWebPromo_Equipo19A
 
                     foreach (var v in vouchers)
                     {
-                        if(v.CodVaucher == Valor)
+                        if (v.CodVaucher == Valor)
                         {
                             encontrado = true;
 
@@ -54,11 +54,16 @@ namespace TPWebPromo_Equipo19A
                                 return;
                             }
 
+                            voucherNegocio negocioCanje = new voucherNegocio();
+
+                            int idCliente = v.IdCliente + 1;
+                            negocioCanje.MarcarCanjeo(Valor, idCliente);        // guardado en la base de datos
+
                             // Voucher valido y no canjeado
                             Response.Redirect("Catalogo.aspx?voucher=" + Valor);
                             return;
 
-                            
+
                         }
                     }
 
@@ -77,10 +82,10 @@ namespace TPWebPromo_Equipo19A
 
                 }
 
-          
-            
+
+
             }
-            
+
         }
     }
 }

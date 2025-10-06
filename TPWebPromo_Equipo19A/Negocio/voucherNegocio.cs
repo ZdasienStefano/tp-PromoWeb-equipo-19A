@@ -49,8 +49,40 @@ namespace Negocio
             {
                 datos.cerrarConexion();
             }
-            
+
         }
 
+
+        public void MarcarCanjeo(string Codigovoucher, int idCliente)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.SetearConsulta("UPDATE Vouchers SET FechaCanje = @FechaCanje, IdCliente = @IdCliente WHERE CodigoVoucher = @CodigoVoucher");
+                datos.SetearParametro("@FechaCanje", DateTime.Now);
+                datos.SetearParametro("@IdCliente", idCliente);
+                datos.SetearParametro("@CodigoVoucher", Codigovoucher);
+
+                datos.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
+
+
+        }
+
+
+
+
     }
+
+
+
 }
