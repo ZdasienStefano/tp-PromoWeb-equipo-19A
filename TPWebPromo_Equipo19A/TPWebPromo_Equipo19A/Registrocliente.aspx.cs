@@ -2,6 +2,7 @@
 using Negocio;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -21,12 +22,14 @@ namespace TPWebPromo_Equipo19A
 
             ArticuloNegocio negocio = new ArticuloNegocio();
             ListaArticulos = negocio.Lectura();
+
         }
 
 
         protected void TxtDNI_TextChanged(object sender, EventArgs e)
         {
             string DNI = TxtDNI.Text;
+            
             if (string.IsNullOrWhiteSpace(DNI))
             {
                 Response.Write("<script>alert('Por favor ingrese un código.');</script>");
@@ -41,6 +44,7 @@ namespace TPWebPromo_Equipo19A
                 List<Cliente> clientes = negocio.Lectura();
 
                 Cliente encontrado = clientes.FirstOrDefault(v => v.Documento == DNI);
+                
 
                 if (encontrado != null)
                 {
@@ -51,7 +55,6 @@ namespace TPWebPromo_Equipo19A
                     TxtDireccion.Text = encontrado.Direccion;
                     TxtCP.Text = encontrado.CP.ToString();
                     LblMensaje.Visible = false; // Oculta el mensaje si existe
-
                     HabilitarCampos(true);
                 }
                 else
@@ -104,17 +107,27 @@ namespace TPWebPromo_Equipo19A
 
                 ClienteNegocio negocio = new ClienteNegocio();
 
-
-                if (negocio.ValidacionxDNI(nuevo.Documento))
+                if (!(negocio.ValidacionxDNI(nuevo.Documento)))
                 {
-                    LblMensaje.Text = "El cliente con ese DNI ya está registrado.";
-                    LblMensaje.CssClass = "text-warning";
-                    LblMensaje.Visible = true;
-                    return;
+                    negocio.Agregar(nuevo);
+                   
                 }
 
+                voucherNegocio negocioCanje = new voucherNegocio();
+                ClienteNegocio negocioCliente = new ClienteNegocio();
 
-                negocio.Agregar(nuevo);
+
+                string codVoucher = Request.QueryString["voucher"];
+                int idArticulo = int.Parse(Request.QueryString["IdArticulo"]);
+                int aux = 0;
+                foreach (var item in negocioCliente.Lectura())
+                {
+                    if(item.Documento == nuevo.Documento)
+                    {
+                        aux = item.IdCliente;
+                    }
+                }
+                negocioCanje.MarcarCanjeo(codVoucher, aux, idArticulo);
 
                 LblMensaje.Text = "¡Participación registrada con éxito!";
                 LblMensaje.CssClass = "text-success";

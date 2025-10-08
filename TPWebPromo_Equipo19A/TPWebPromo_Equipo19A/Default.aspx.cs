@@ -49,15 +49,11 @@ namespace TPWebPromo_Equipo19A
                             if (v.FechaCanje.HasValue)
                             {
                                 // Voucher encontrado pero ya canjeado
-                                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Este voucher ya fue canjeado.');", true);
+                                Response.Redirect("Error.aspx");
                                 TextBox1.Text = string.Empty;
                                 return;
                             }
 
-                            voucherNegocio negocioCanje = new voucherNegocio();
-
-                            int idCliente = v.IdCliente + 1;
-                            negocioCanje.MarcarCanjeo(Valor, idCliente);        // guardado en la base de datos
 
                             // Voucher valido y no canjeado
                             Response.Redirect("Catalogo.aspx?voucher=" + Valor);

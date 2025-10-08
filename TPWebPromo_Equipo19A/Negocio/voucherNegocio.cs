@@ -53,14 +53,15 @@ namespace Negocio
         }
 
 
-        public void MarcarCanjeo(string Codigovoucher, int idCliente)
+        public void MarcarCanjeo(string Codigovoucher, int idCliente, int idArticulo)
         {
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.SetearConsulta("UPDATE Vouchers SET FechaCanje = @FechaCanje, IdCliente = @IdCliente WHERE CodigoVoucher = @CodigoVoucher");
+                datos.SetearConsulta("UPDATE Vouchers SET FechaCanje = @FechaCanje, IdCliente = @IdCliente, IdArticulo = @IdArticulo WHERE CodigoVoucher = @CodigoVoucher");
                 datos.SetearParametro("@FechaCanje", DateTime.Now);
                 datos.SetearParametro("@IdCliente", idCliente);
+                datos.SetearParametro("@IdArticulo", idArticulo);
                 datos.SetearParametro("@CodigoVoucher", Codigovoucher);
 
                 datos.EjecutarAccion();
